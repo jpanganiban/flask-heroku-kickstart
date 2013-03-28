@@ -1,5 +1,10 @@
 from application import create_app
-from config import Config
+import config
 
 
-app = create_app(Config())
+app = create_app(config.ProductionConfig())
+
+
+if __name__ == '__main__':
+    app = create_app(config.DevelopmentConfig())
+    app.run(debug=True)
