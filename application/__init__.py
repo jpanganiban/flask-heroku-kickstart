@@ -1,4 +1,6 @@
 from flask import Flask
+from flask.ext.heroku import Heroku
+
 from application.controllers import home
 
 
@@ -13,6 +15,7 @@ def create_app(config=None):
         app.config.from_object(config)
 
     # Install plugins after the comment
+    heroku = Heroku(app)
 
     # Install blueprints after the comment
     app.register_blueprint(home.app, url_prefix="/")
