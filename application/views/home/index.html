@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-{% block body %}
+
+{% block app_body %}
 
 {% if user %}
 <h1>Hello, {{ user.first_name }} {{ user.last_name }}</h1>
@@ -7,4 +8,4 @@
 <h1>Hello World!</h1>
 {% endif %}
 
-{% endblock body %}
+{% endblock app_body %}

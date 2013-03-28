@@ -3,9 +3,9 @@
 
 {% block app_body %}
 
-<h1>Registration</h1>
+<h1>Login</h1>
 
-<form method=POST action={{ url_for('registration.index') }}>
+<form method=POST action={{ url_for('authentication.login') }}>
   {{ wtf.quick_form(form) }}
 </form>
 

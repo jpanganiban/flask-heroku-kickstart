@@ -23,3 +23,17 @@ class User(db.Model):
         """Creates a sha1 hash equivalent of the password"""
         # TODO: This function can be imporved further...
         return hashlib.new('sha1', password_string).hexdigest()
+
+    @classmethod
+    def authenticate(cls, username, password_string):
+        """A classmethod that returns the user if the
+        credentials are correct."""
+        user = cls.query.filter_by(username=username).first()
+
+        if not user:
+            return None
+
+        if not user.password == user._hash_password(password_string):
+            return None
+
+        return user
