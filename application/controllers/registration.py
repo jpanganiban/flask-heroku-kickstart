@@ -23,7 +23,6 @@ def index():
 
         form = RegistrationForm(request.form)
         if form.validate():
-            print "VALID"
             user = User(**{
                 "email": form.email.data,
                 "username": form.username.data,
