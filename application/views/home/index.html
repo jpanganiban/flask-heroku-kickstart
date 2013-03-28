@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% block body %}
-<h1>Hello World!</h1>
 
-<code>Current database config: {{ database_config }}</code>
+{% if user %}
+<h1>Hello, {{ user.first_name }} {{ user.last_name }}</h1>
+{% else %}
+<h1>Hello World!</h1>
+{% endif %}
+
 {% endblock body %}

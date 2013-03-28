@@ -3,7 +3,7 @@ from flask.ext.heroku import Heroku
 from flask.ext.bootstrap import Bootstrap
 
 from application.models import db
-from application.controllers import home, registration
+from application.controllers import home, registration, authentication
 
 
 def create_app(config=None):
@@ -18,11 +18,12 @@ def create_app(config=None):
 
     # Install plugins after the comment
     db.init_app(app)
-    Heroku(app)
-    Bootstrap(app)
+    heroku = Heroku(app)
+    bootstrap = Bootstrap(app)
 
     # Install blueprints after the comment
     app.register_blueprint(home.app, url_prefix="/")
     app.register_blueprint(registration.app, url_prefix="/registration")
+    app.register_blueprint(authentication.app, url_prefix="/auth")
 
     return app

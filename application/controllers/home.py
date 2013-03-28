@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template, current_app
+from flask import Blueprint, render_template, session
+
+from application.models import User
 
 
 app = Blueprint("home", __name__)
@@ -6,6 +8,12 @@ app = Blueprint("home", __name__)
 
 @app.route('')
 def index():
-    return render_template('home/index.html', **{
-        'database_config': current_app.config["SQLALCHEMY_DATABASE_URI"],
-    })
+    context = {}
+
+    user_id = session.get('user_id', None)
+
+    if user_id:
+        user = User.query.get(user_id)
+        context['user'] = user
+
+    return render_template('home/index.html', **context)
