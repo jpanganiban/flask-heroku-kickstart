@@ -17,9 +17,9 @@ def create_app(config=None):
         app.config.from_object(config)
 
     # Install plugins after the comment
-    db.init_app(app)
     heroku = Heroku(app)
     bootstrap = Bootstrap(app)
+    db.init_app(app)
 
     # Install blueprints after the comment
     app.register_blueprint(home.app, url_prefix="/")
