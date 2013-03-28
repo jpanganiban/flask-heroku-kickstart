@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% import "bootstrap_wtf.html" as wtf %}
+
+{% block body_content %}
+
+<h1>Registration</h1>
+
+<form method=POST action={{ url_for('registration.index') }}>
+  {{ wtf.quick_form(form) }}
+</form>
+
+{% endblock body_content %}
