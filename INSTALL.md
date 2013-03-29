@@ -13,11 +13,11 @@ Ubuntu 12.04 LTS
 The Tools
 ---------
 
-Let's install the basics first:
+Let's install the essentials first:
 
 ```
 # Install the applications we need.
-$ sudo apt-get install python-setuptools
+$ sudo apt-get install python-setuptools git-core
 $ sudo easy_install pip
 $ sudo pip install virtualenv virtualenvwrapper
 
